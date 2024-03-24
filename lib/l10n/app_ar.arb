@@ -1,0 +1,21 @@
+{
+  "newsApp": "تطبيق الاخبار",
+  "newsDrawer": "تطبيق الاخبار!",
+  "pickCat":"اختر الفئه التي تهتم بها",
+  "settings": "الاعدادات",
+  "language":"اللغة",
+  "english":"الانجليزيه",
+  "arabic": "العربية",
+  "selectLanguage": "اختار اللغة",
+  "newsDetails": "تفاصيل الأخبار",
+  "isError": "هناك خطأ ما..",
+  "sports": "الرياضة",
+  "politics": "السياسة",
+  "health": "الصحة",
+  "business": "الأعمال",
+  "entertainment": "الترفيه",
+  "science":"العلوم",
+  "categories": "الفئات",
+  "viewFullArticle": "عرض المقال كاملا"
+
+}

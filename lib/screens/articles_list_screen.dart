@@ -5,6 +5,7 @@ import 'package:news_app/screens/widgets/source_item_widget.dart';
 import 'package:news_app/shared/network/remote/api_manager.dart';
 import 'package:news_app/screens/widgets/article_item.dart';
 import 'package:news_app/shared/styles/app_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ArticlesListScreen extends StatefulWidget {
   ArticlesListScreen({super.key, required this.sources,required this.text});
@@ -19,6 +20,8 @@ class _ArticlesListScreenState extends State<ArticlesListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var local = AppLocalizations.of(context)!;
+
     return Column(
       children: [
         const SizedBox(height: 10),
@@ -51,7 +54,7 @@ class _ArticlesListScreenState extends State<ArticlesListScreen> {
         ),
         FutureBuilder(
           future:
-              ApiManager.getNewsData(widget.sources[selectedIndex].id ?? '',widget.text),
+              ApiManager.getNewsData(widget.sources[selectedIndex].id ?? '',widget.text,context),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
@@ -59,8 +62,8 @@ class _ArticlesListScreenState extends State<ArticlesListScreen> {
                       CircularProgressIndicator(color: AppTheme.primaryColor));
             }
             if (snapshot.hasError) {
-              return const Center(
-                child: Text('Something Went Wrong'),
+              return Center(
+                child: Text(local.isError),
               );
             }
             List<Articles> articlesList = snapshot.data?.articles ?? [];

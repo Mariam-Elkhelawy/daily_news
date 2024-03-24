@@ -1,0 +1,20 @@
+{
+  "newsApp": "News App",
+  "newsDrawer": "News App!",
+  "pickCat":"Pick your category \nof interest",
+  "settings": "Settings",
+  "language":"Language",
+  "english":"English",
+  "arabic": "Arabic",
+  "selectLanguage": "Select Language",
+  "newsDetails": "News Details",
+  "isError": "Something went wrong..",
+  "sports": "Sports",
+  "politics": "Politics",
+  "health": "Health",
+  "business": "Business",
+  "entertainment": "Entertainment",
+  "science":"Science",
+  "categories": "Categories",
+  "viewFullArticle": "View Full Article"
+}

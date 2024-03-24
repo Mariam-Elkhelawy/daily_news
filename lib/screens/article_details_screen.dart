@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/models/NewsDataModel.dart';
 import 'package:news_app/shared/widgets/custom_bg_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ArticleDetailsScreen extends StatelessWidget {
   const ArticleDetailsScreen({super.key});
@@ -11,12 +12,13 @@ class ArticleDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    var local = AppLocalizations.of(context)!;
     var article = ModalRoute.of(context)!.settings.arguments as Articles;
     return CustomBGWidget(
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'News Details',
+            local.newsDetails,
             style: theme.textTheme.bodyLarge,
           ),
         ),
@@ -99,7 +101,7 @@ class ArticleDetailsScreen extends StatelessWidget {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 0, 30, 30, 0),
                             child: Text(
-                              'View Full Article',
+                              local.viewFullArticle,
                               style: theme.textTheme.bodySmall,
                               textAlign: TextAlign.end,
                             ),
@@ -113,12 +115,6 @@ class ArticleDetailsScreen extends StatelessWidget {
                                 if (!await launchUrl(url)) {
                                   throw Exception('Could not launch $url');
                                 }
-                                // if (await launchUrl(url)) {
-                                //   await launchUrl(url);
-                                // } else {
-                                //   // can't launch url
-                                //   throw 'Could not launch $url';
-                                // }
                               },
                               child: Icon(
                                 Icons.arrow_right_sharp,

@@ -6,9 +6,10 @@ import 'package:news_app/screens/settings_screen.dart';
 import 'package:news_app/screens/widgets/drawer_widget.dart';
 import 'package:news_app/shared/styles/app_theme.dart';
 import 'package:news_app/shared/widgets/custom_bg_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
   static const String routeName = 'HomeScreen';
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -23,6 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    var local = AppLocalizations.of(context)!;
+
     return CustomBGWidget(
       child: Scaffold(
         appBar: searching
@@ -31,7 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 50,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: TextFormField(controller: searchController,
+                    child: TextFormField(
+                      controller: searchController,
                       style: theme.textTheme.bodySmall
                           ?.copyWith(color: theme.primaryColor),
                       cursorColor: theme.primaryColor,
@@ -40,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         prefixIcon: IconButton(
                           onPressed: () {
                             searching = false;
+                            searchController.text = '';
                             setState(() {});
                           },
                           icon: Icon(
@@ -51,12 +56,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         filled: true,
                         fillColor: Colors.white,
                         suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.search,
-                              color: theme.primaryColor,
-                              size: 30,
-                            ),),
+                          onPressed: () {
+                            searchController.notifyListeners();
+                            setState(() {});
+                          },
+                          icon: Icon(
+                            Icons.search,
+                            color: theme.primaryColor,
+                            size: 30,
+                          ),
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
@@ -81,9 +90,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 leadingWidth: 80,
                 title: Text(
                   isSettings
-                      ? 'Settings'
+                      ? local.settings
                       : categoryModel == null
-                          ? 'News App'
+                          ? local.newsApp
                           : categoryModel!.categoryName,
                   style: theme.textTheme.bodyLarge,
                 ),
@@ -112,7 +121,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     onCategoryTab: onCategoryTab,
                   )
                 : NewsListScreen(
-                    categoryId: categoryModel?.id ?? '',text: searchController.text,
+                    categoryId: categoryModel?.id ?? '',
+                    text: searchController.text,
                   ),
       ),
     );
