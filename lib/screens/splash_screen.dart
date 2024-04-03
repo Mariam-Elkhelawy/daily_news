@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
         image: AssetImage('assets/images/splash.png'),
       ),
       nextScreen:
-      HomeScreen(),
+      const HomeScreen(),
       childWidget: const SizedBox(),
     );
   }

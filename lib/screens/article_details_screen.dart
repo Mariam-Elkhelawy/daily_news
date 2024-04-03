@@ -67,24 +67,24 @@ class ArticleDetailsScreen extends StatelessWidget {
                         color: const Color(0xFF79828B),
                       ),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(
                       article.title ?? '',
                       style: theme.textTheme.bodySmall,
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
                       child: Text(
                         article.publishedAt?.substring(0, 10) ?? '',
                         textAlign: TextAlign.end,
                         style: theme.textTheme.bodySmall
-                            ?.copyWith(color: Color(0xFFA3A3A3), fontSize: 13),
+                            ?.copyWith(color: const Color(0xFFA3A3A3), fontSize: 13),
                       ),
                     ),
-                    SizedBox(height: 14),
+                    const SizedBox(height: 14),
                     Container(
-                      padding: EdgeInsetsDirectional.fromSTEB(15, 20, 10, 15),
+                      padding: const EdgeInsetsDirectional.fromSTEB(15, 20, 10, 15),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(25),
@@ -111,12 +111,11 @@ class ArticleDetailsScreen extends StatelessWidget {
                             child: InkWell(
                               onTap: () async {
                                 final Uri url = Uri.parse(article.url ?? '');
-                                print(url);
                                 if (!await launchUrl(url)) {
                                   throw Exception('Could not launch $url');
                                 }
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.arrow_right_sharp,
                                 size: 30,
                                 color: Color(0xFF303030),
