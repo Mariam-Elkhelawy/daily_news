@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/screens/bloc/cubit.dart';
-import 'package:news_app/screens/bloc/states.dart';
 import 'package:news_app/screens/widgets/source_item_widget.dart';
 import 'package:news_app/screens/widgets/article_item.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:news_app/shared/styles/app_theme.dart';
 
 class ArticlesListScreen extends StatelessWidget {
   ArticlesListScreen({super.key, required this.text});

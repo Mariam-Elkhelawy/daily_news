@@ -21,7 +21,7 @@ class NewsListScreen extends StatelessWidget {
           if (state is HomeGetSourcesLoadingState) {
             showDialog(
               context: context,
-              builder: (context) => AlertDialog(
+              builder: (context) => const AlertDialog(
                 backgroundColor: Colors.transparent,
                 elevation: 0,
                 title: Center(

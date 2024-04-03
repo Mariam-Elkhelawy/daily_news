@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/layout/custom_text_form_field.dart';
 import 'package:news_app/models/category_model.dart';
 import 'package:news_app/screens/news_list_screen.dart';
 import 'package:news_app/screens/categories_screen.dart';
 import 'package:news_app/screens/settings_screen.dart';
 import 'package:news_app/screens/widgets/drawer_widget.dart';
-import 'package:news_app/shared/styles/app_theme.dart';
 import 'package:news_app/shared/widgets/custom_bg_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -16,11 +16,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  TextEditingController searchController = TextEditingController();
-
   bool isSettings = false;
   bool searching = false;
-
+  String searchedVal = '';
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
@@ -34,54 +32,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 50,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: TextFormField(
-                      controller: searchController,
-                      style: theme.textTheme.bodySmall
-                          ?.copyWith(color: theme.primaryColor),
-                      cursorColor: theme.primaryColor,
-                      cursorHeight: 25,
-                      decoration: InputDecoration(
-                        prefixIcon: IconButton(
-                          onPressed: () {
-                            searching = false;
-                            searchController.text = '';
-                            setState(() {});
-                          },
-                          icon: Icon(
-                            Icons.close,
-                            size: 30,
-                            color: theme.primaryColor,
-                          ),
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            searchController.notifyListeners();
-                            setState(() {});
-                          },
-                          icon: Icon(
-                            Icons.search,
-                            color: theme.primaryColor,
-                            size: 30,
-                          ),
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: const BorderSide(
-                            color: AppTheme.primaryColor,
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: const BorderSide(
-                            color: AppTheme.primaryColor,
-                          ),
-                        ),
-                      ),
+                    child: CustomTextFormField(
+                      onChanged: (value) {
+                        searchedVal = value;
+                        setState(() {});
+                      },
+                      onPrefixPressed: () {
+                        searching = false;
+                        searchedVal = '';
+                        setState(() {});
+                      },
+                      onSuffixPressed: () => setState(() {}),
                     ),
                   ),
                 ),
@@ -105,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           searching = true;
                           setState(() {});
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.search,
                           size: 45,
                         ),
@@ -122,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 : NewsListScreen(
                     categoryId: categoryModel?.id ?? '',
-                    text: searchController.text,
+                    text: searchedVal,
                   ),
       ),
     );
