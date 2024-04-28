@@ -16,4 +16,4 @@ Find relevant information quickly and efficiently.
 - 📦**Local Data Storage**: Utilized SharedPreferences to store user preferences and saved articles locally.
 - 🌍**API Integration**: Integrated NewsAPI to fetch news articles from various sources.
 
-![Alt![category.jpg](..%2F..%2FDesktop%2Fcategory.jpg) text](?raw=true "Title")
+![category.jpg](..%2F..%2FDesktop%2Fcategory.jpg) text](?raw=true "Title")
