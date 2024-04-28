@@ -23,6 +23,6 @@ Find relevant information quickly and efficiently.
 ## Contribution
 Contributions are welcome! If you have any suggestions, bug fixes, or new features to propose, feel free to do so.
 
-##Acknowledgments
+## Acknowledgments
 This app uses the NewsAPI service to fetch news articles.
 Special thanks to the Flutter community for their support and contributions.
