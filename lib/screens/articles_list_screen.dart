@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news_app/models/NewsDataModel.dart';
 import 'package:news_app/screens/bloc/cubit.dart';
 import 'package:news_app/screens/widgets/source_item_widget.dart';
 import 'package:news_app/screens/widgets/article_item.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:news_app/shared/styles/app_theme.dart';
 
 class ArticlesListScreen extends StatelessWidget {
   ArticlesListScreen({super.key, required this.text});
   String text;
+  ScrollController controller = ScrollController();
+  List<Articles> news = [];
 
   @override
   Widget build(BuildContext context) {
     var local = AppLocalizations.of(context)!;
     return Column(
       children: [
-        const SizedBox(height: 10),
+        SizedBox(height: 10.h),
         Padding(
-          padding: const EdgeInsetsDirectional.only(start: 12),
+          padding: EdgeInsetsDirectional.only(start: 12.w),
           child: DefaultTabController(
             length: HomeCubit.get(context).sources.length,
             child: TabBar(
               padding: EdgeInsets.zero,
               indicatorPadding: EdgeInsets.zero,
-              labelPadding: const EdgeInsets.symmetric(horizontal: 6),
+              labelPadding: EdgeInsets.symmetric(horizontal: 6.w),
               tabAlignment: TabAlignment.start,
               indicatorColor: Colors.transparent,
               dividerColor: Colors.transparent,
@@ -43,7 +48,16 @@ class ArticlesListScreen extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: ListView.builder(
+          child: ListView.separated(
+            separatorBuilder: (context, index) {
+              return Divider(
+                color: AppTheme.primaryColor,
+                indent: 25.w,
+                endIndent: 25.w,
+                thickness: .5,
+              );
+            },
+            controller: controller,
             itemBuilder: (context, index) {
               return ArticleItem(
                   articles: HomeCubit.get(context).articles[index]);

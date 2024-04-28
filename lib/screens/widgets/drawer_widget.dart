@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DrawerWidget extends StatelessWidget {
-  DrawerWidget({super.key,required this.onTap});
+  DrawerWidget({super.key, required this.onTap});
   Function onTap;
- static int categoryID = 1;
- static int settingsID = 2;
+  static int categoryID = 1;
+  static int settingsID = 2;
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context).size;
@@ -16,8 +17,8 @@ class DrawerWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
-          topRight: Radius.circular(5),
-          bottomRight: Radius.circular(5),
+          topRight: Radius.circular(5.r),
+          bottomRight: Radius.circular(5.r),
         ),
       ),
       child: Column(
@@ -26,29 +27,30 @@ class DrawerWidget extends StatelessWidget {
             color: theme.primaryColor,
             height: mediaQuery.height * .17,
             child: Center(
-                child: Text(
-              local.newsDrawer,
-              style: theme.textTheme.titleLarge?.copyWith(color: Colors.white),
-            )),
+                child: Image.asset('assets/images/logo.png',height: 70,)
+            ),
           ),
           InkWell(
             onTap: () {
               onTap(categoryID);
             },
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 12.0, vertical: 12),
+              padding: EdgeInsets.symmetric(horizontal: 12.0.w, vertical: 12.h),
               child: Row(
                 children: [
-                  ImageIcon(
+                  const ImageIcon(
                     AssetImage('assets/images/ic_list.png'),
+                    color: Color(0xFF4F5A69),
                     size: 20,
                   ),
-                  SizedBox(width: 8),
+                  SizedBox(width: 8.w),
                   Text(
-                   local.categories,
-                    style: theme.textTheme.titleLarge
-                        ?.copyWith(color: Color(0xFF303030)),
+                    local.categories,
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      height: 1.5.h,
+                      fontSize: 22.sp,
+                      color: const Color(0xFF4F5A69),
+                    ),
                   )
                 ],
               ),
@@ -59,18 +61,21 @@ class DrawerWidget extends StatelessWidget {
               onTap(settingsID);
             },
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              padding: EdgeInsets.symmetric(horizontal: 12.0.w),
               child: Row(
                 children: [
-                  ImageIcon(
+                  const ImageIcon(
                     AssetImage('assets/images/ic_settings.png'),
+                    color: Color(0xFF4F5A69),
                     size: 22,
                   ),
-                  SizedBox(width: 8),
+                  SizedBox(width: 8.w),
                   Text(
                     local.settings,
                     style: theme.textTheme.titleLarge?.copyWith(
-                      color: Color(0xFF303030),
+                      height: 1.5.h,
+                      fontSize: 22.sp,
+                      color: const Color(0xFF4F5A69),
                     ),
                   )
                 ],

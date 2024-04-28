@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/models/source_response_model.dart';
 
 class SourceItemWidget extends StatelessWidget {
@@ -10,13 +11,13 @@ class SourceItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12.0),
+      padding:  EdgeInsets.symmetric(vertical: 12.0.h),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        padding:  EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
         decoration: BoxDecoration(
-          border: Border.all(color: theme.primaryColor,width: 2),
+          border: Border.all(color: theme.primaryColor,width: 2.w),
           color: isSelected ? theme.primaryColor : Colors.transparent,
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(25.r),
         ),
         child: Text(
           sources.name ?? '',

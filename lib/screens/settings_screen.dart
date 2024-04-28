@@ -1,12 +1,13 @@
 import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/providers/my_provider.dart';
 import 'package:news_app/shared/styles/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class SettingsScreen extends StatelessWidget {
-  SettingsScreen({super.key});
+  const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class SettingsScreen extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(25, 25, 20, 0),
+          padding:  EdgeInsetsDirectional.fromSTEB(25.w, 25.h, 20.w, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -26,7 +27,7 @@ class SettingsScreen extends StatelessWidget {
                 style: theme.textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold, color: Color(0xFF42505C)),
               ),
-              const SizedBox(height: 14),
+               SizedBox(height: 14.h),
               CustomDropdown(
                 initialItem: provider.languageCode == 'en'
                     ? local.english
@@ -44,9 +45,9 @@ class SettingsScreen extends StatelessWidget {
                   closedBorderRadius: BorderRadius.zero,
                   expandedBorderRadius: BorderRadius.zero,
                   headerStyle: theme.textTheme.bodyMedium
-                      ?.copyWith(color: AppTheme.primaryColor, fontSize: 18),
+                      ?.copyWith(color: AppTheme.primaryColor, fontSize: 18.sp),
                   listItemStyle: theme.textTheme.bodyMedium
-                      ?.copyWith(color: AppTheme.primaryColor, fontSize: 18),
+                      ?.copyWith(color: AppTheme.primaryColor, fontSize: 18.sp),
                   closedBorder: Border.all(color: AppTheme.primaryColor),
                   closedFillColor: Colors.white,
                   expandedFillColor: Colors.white,

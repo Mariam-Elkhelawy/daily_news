@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:news_app/models/NewsDataModel.dart';
 import 'package:news_app/models/source_response_model.dart';
+import 'package:news_app/providers/my_provider.dart';
 import 'package:news_app/screens/bloc/states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/shared/constants.dart';
 import 'package:news_app/shared/network/remote/endPoints.dart';
 import 'package:news_app/shared/styles/app_strings.dart';
+import 'package:provider/provider.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitState());
@@ -22,14 +24,14 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future<void> getSources(String categoryId, BuildContext context) async {
-    emit(HomeGetSourcesLoadingState());
+     emit(HomeGetSourcesLoadingState());
     try {
-      // var provider = Provider.of<MyProvider>(context);
+       // var provider = Provider.of<MyProvider>(context);
 
       Uri url = Uri.https(Constants.BASE_URL, EndPoints.sources, {
         AppString.apiKey: Constants.API_KEY_VALUE,
         AppString.category: categoryId,
-        // AppString.language :provider.languageCode
+         // AppString.language :provider.languageCode
       });
       http.Response response = await http.get(url);
       Map<String, dynamic> json = jsonDecode(response.body);
@@ -43,18 +45,21 @@ class HomeCubit extends Cubit<HomeState> {
           e.toString(),
         ),
       );
+      print(e);
     }
   }
 
-  Future<void> getNewsData(String searchedVal, BuildContext context) async {
-    // var provider = Provider.of<MyProvider>(context);
+  Future<void> getNewsData(String searchedVal, BuildContext context,int pageSize,int page) async {
+     // var provider = Provider.of<MyProvider>(context);
     try {
-      emit(HomeGetNewsLoadingState());
+       emit(HomeGetNewsLoadingState());
       Uri url = Uri.https(Constants.BASE_URL, EndPoints.newsData, {
         AppString.apiKey: Constants.API_KEY_VALUE,
         AppString.sources: sources[selectedIndex].id,
         'q': searchedVal,
-        // AppString.language :provider.languageCode
+        // 'pageSize':'$pageSize',
+        // 'page':'$page',
+         // AppString.language :provider.languageCode
       });
       http.Response response = await http.get(url);
       Map<String, dynamic> json = jsonDecode(response.body);

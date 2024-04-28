@@ -1,10 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/models/NewsDataModel.dart';
 import 'package:news_app/shared/widgets/custom_bg_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class ArticleDetailsScreen extends StatelessWidget {
   const ArticleDetailsScreen({super.key});
@@ -17,13 +19,13 @@ class ArticleDetailsScreen extends StatelessWidget {
     return CustomBGWidget(
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            local.newsDetails,
-            style: theme.textTheme.bodyLarge,
+          title: Image.asset(
+            'assets/images/logo.png',
+            height: 65.h,
           ),
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 25.0),
+          padding: EdgeInsets.symmetric(vertical: 25.0.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -38,7 +40,7 @@ class ArticleDetailsScreen extends StatelessWidget {
                   child: CachedNetworkImage(
                     imageUrl: article.urlToImage ?? '',
                     fit: BoxFit.fill,
-                    height: 235,
+                    height: 235.h,
                     width: double.infinity,
                     placeholder: (context, url) => Center(
                       child: CircularProgressIndicator(
@@ -55,7 +57,7 @@ class ArticleDetailsScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15, 10, 10, 10),
+                padding: EdgeInsetsDirectional.fromSTEB(15.w, 10.h, 10.w, 10.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -63,28 +65,29 @@ class ArticleDetailsScreen extends StatelessWidget {
                       article.source?.name ?? '',
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w400,
-                        fontSize: 10,
+                        fontSize: 10.sp,
                         color: const Color(0xFF79828B),
                       ),
                     ),
-                    const SizedBox(height: 4),
+                    SizedBox(height: 4.h),
                     Text(
                       article.title ?? '',
                       style: theme.textTheme.bodySmall,
                     ),
-                    const SizedBox(height: 4),
+                    SizedBox(height: 4.h),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 15.h, 0),
                       child: Text(
-                        article.publishedAt?.substring(0, 10) ?? '',
+                        timeago.format(DateTime.parse(article.publishedAt??'')),
                         textAlign: TextAlign.end,
-                        style: theme.textTheme.bodySmall
-                            ?.copyWith(color: const Color(0xFFA3A3A3), fontSize: 13),
+                        style: theme.textTheme.bodySmall?.copyWith(
+                            color: const Color(0xFFA3A3A3), fontSize: 13),
                       ),
                     ),
-                    const SizedBox(height: 14),
+                    SizedBox(height: 14.h),
                     Container(
-                      padding: const EdgeInsetsDirectional.fromSTEB(15, 20, 10, 15),
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          15.w, 20.h, 10.w, 15.h),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(25),
@@ -98,8 +101,8 @@ class ArticleDetailsScreen extends StatelessWidget {
                                 ?.copyWith(fontWeight: FontWeight.w300),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0, 30, 30, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0, 30.h, 30.w, 0),
                             child: Text(
                               local.viewFullArticle,
                               style: theme.textTheme.bodySmall,

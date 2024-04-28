@@ -48,15 +48,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               )
             : AppBar(
-                leadingWidth: 80,
-                title: Text(
-                  isSettings
-                      ? local.settings
-                      : categoryModel == null
-                          ? local.newsApp
-                          : categoryModel!.categoryName,
-                  style: theme.textTheme.bodyLarge,
-                ),
+                 leadingWidth: 55,
+                title: categoryModel == null
+                    ? Image.asset('assets/images/logo.png',height: 65,)
+                    : Text(
+                        isSettings
+                            ? local.settings
+                            : '${categoryModel!.categoryName} News',
+                        style: theme.textTheme.bodyLarge,
+                      ),
                 actions: [
                   if (categoryModel != null)
                     Padding(

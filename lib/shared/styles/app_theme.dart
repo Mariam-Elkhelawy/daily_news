@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  static const primaryColor = Color(0xFF39A552);
+  static const primaryColor = Color(0xFF004866);
   static ThemeData appTheme = ThemeData(
     primaryColor: primaryColor,
     brightness: Brightness.light,
@@ -27,8 +27,8 @@ class AppTheme {
       iconTheme: IconThemeData(color: Colors.white, size: 35),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          bottomRight: Radius.circular(35),
-          bottomLeft: Radius.circular(35),
+          bottomRight: Radius.circular(10),
+          bottomLeft: Radius.circular(10),
         ),
       ),
     ),
