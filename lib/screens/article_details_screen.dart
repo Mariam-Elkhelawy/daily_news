@@ -1,9 +1,9 @@
+import 'package:Khabar/models/NewsDataModel.dart';
+import 'package:Khabar/shared/widgets/custom_bg_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:news_app/models/NewsDataModel.dart';
-import 'package:news_app/shared/widgets/custom_bg_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:timeago/timeago.dart' as timeago;

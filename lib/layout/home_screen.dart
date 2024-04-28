@@ -1,11 +1,11 @@
+import 'package:Khabar/layout/custom_text_form_field.dart';
+import 'package:Khabar/models/category_model.dart';
+import 'package:Khabar/screens/categories_screen.dart';
+import 'package:Khabar/screens/news_list_screen.dart';
+import 'package:Khabar/screens/settings_screen.dart';
+import 'package:Khabar/screens/widgets/drawer_widget.dart';
+import 'package:Khabar/shared/widgets/custom_bg_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:news_app/layout/custom_text_form_field.dart';
-import 'package:news_app/models/category_model.dart';
-import 'package:news_app/screens/news_list_screen.dart';
-import 'package:news_app/screens/categories_screen.dart';
-import 'package:news_app/screens/settings_screen.dart';
-import 'package:news_app/screens/widgets/drawer_widget.dart';
-import 'package:news_app/shared/widgets/custom_bg_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {

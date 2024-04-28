@@ -1,15 +1,16 @@
+import 'package:Khabar/providers/my_provider.dart';
+import 'package:Khabar/screens/article_details_screen.dart';
+import 'package:Khabar/screens/splash_screen.dart';
+import 'package:Khabar/shared/styles/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/layout/home_screen.dart';
-import 'package:news_app/observer.dart';
-import 'package:news_app/providers/my_provider.dart';
-import 'package:news_app/screens/article_details_screen.dart';
-import 'package:news_app/screens/splash_screen.dart';
-import 'package:news_app/shared/styles/app_theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+
+import 'layout/home_screen.dart';
+import 'observer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

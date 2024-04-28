@@ -1,11 +1,12 @@
+import 'package:Khabar/models/NewsDataModel.dart';
+import 'package:Khabar/screens/widgets/article_item.dart';
+import 'package:Khabar/screens/widgets/source_item_widget.dart';
+import 'package:Khabar/shared/styles/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/models/NewsDataModel.dart';
-import 'package:news_app/screens/bloc/cubit.dart';
-import 'package:news_app/screens/widgets/source_item_widget.dart';
-import 'package:news_app/screens/widgets/article_item.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:news_app/shared/styles/app_theme.dart';
+
+import 'bloc/cubit.dart';
 
 class ArticlesListScreen extends StatelessWidget {
   ArticlesListScreen({super.key, required this.text});

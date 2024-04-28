@@ -1,6 +1,6 @@
+import 'package:Khabar/models/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/models/category_model.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem(

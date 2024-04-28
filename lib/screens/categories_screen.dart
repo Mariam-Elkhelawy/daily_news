@@ -1,13 +1,13 @@
+import 'package:Khabar/models/category_model.dart';
+import 'package:Khabar/screens/widgets/category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/models/category_model.dart';
-import 'package:news_app/screens/widgets/category_item.dart';
-import 'package:news_app/shared/widgets/custom_bg_widget.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../shared/widgets/custom_bg_widget.dart';
 
 class CategoriesScreen extends StatelessWidget {
   CategoriesScreen({super.key, required this.onCategoryTab});
-  Function onCategoryTab;
+ final Function onCategoryTab;
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);

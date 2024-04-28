@@ -1,8 +1,8 @@
+import 'package:Khabar/models/NewsDataModel.dart';
+import 'package:Khabar/screens/article_details_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/models/NewsDataModel.dart';
-import 'package:news_app/screens/article_details_screen.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class ArticleItem extends StatelessWidget {

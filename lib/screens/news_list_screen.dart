@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/models/NewsDataModel.dart';
-import 'package:news_app/screens/articles_list_screen.dart';
-import 'package:news_app/screens/bloc/cubit.dart';
-import 'package:news_app/screens/bloc/states.dart';
-import 'package:news_app/shared/styles/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../models/NewsDataModel.dart';
+import '../shared/styles/app_theme.dart';
+import 'articles_list_screen.dart';
+import 'bloc/cubit.dart';
+import 'bloc/states.dart';
 
 class NewsListScreen extends StatelessWidget {
   NewsListScreen({super.key, required this.categoryId, required this.text});
