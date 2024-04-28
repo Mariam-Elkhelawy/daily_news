@@ -1,6 +1,5 @@
 # 📰 Khabar App
-This is a Flutter news app that fetches news articles from NewsAPI.
-The app provides users with the latest news headlines from various sources and categories.
+This is a Flutter news app that fetches news articles from NewsAPI.The app provides users with the latest news headlines from various sources and categories.
 ## Features
 
 - 📰**Latest Headlines**: Stay informed with up-to-the-minute news updates from around the world.
