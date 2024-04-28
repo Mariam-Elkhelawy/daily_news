@@ -16,5 +16,5 @@ Find relevant information quickly and efficiently.
 - 📦**Local Data Storage**: Utilized SharedPreferences to store user preferences and saved articles locally.
 - 🌍**API Integration**: Integrated NewsAPI to fetch news articles from various sources.
 
-<img src = "https://github.com/Mariam-Elkhelawy/daily_news/assets/112530709/ae7b0bbe-ebbc-462d-afa5-3d126e58e9ec" widrh = 600  height = 300> <img src = "https://github.com/Mariam-Elkhelawy/daily_news/assets/112530709/c51c23bc-a1dc-4187-98cf-dfc95039a6ee" widrh = 600  height = 300>
+<img src = "https://github.com/Mariam-Elkhelawy/daily_news/assets/112530709/ae7b0bbe-ebbc-462d-afa5-3d126e58e9ec" widrh = 800  height = 400>      <img src = "https://github.com/Mariam-Elkhelawy/daily_news/assets/112530709/c51c23bc-a1dc-4187-98cf-dfc95039a6ee" widrh = 800  height = 400>
 
